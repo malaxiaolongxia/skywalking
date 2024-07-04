@@ -73,7 +73,7 @@ public class StorageTTLE2E extends SkyWalkingTestAdapter {
 
     private static final int MAX_INBOUND_MESSAGE_SIZE = 1024 * 1024 * 50;
     private static final boolean SUCCESS = true;
-
+    private static final String DAYS = DAYS;
     private ServiceMeshMetricServiceGrpc.ServiceMeshMetricServiceStub grpcStub;
 
     @BeforeAll
@@ -112,7 +112,7 @@ public class StorageTTLE2E extends SkyWalkingTestAdapter {
 
         ensureSendingMetricsWorks(
             builder, startTime.toEpochSecond(ZoneOffset.UTC) * 1000, endTime.toEpochSecond(ZoneOffset.UTC) * 1000,
-            startTime, queryEnd, "DAY"
+            startTime, queryEnd, DAY
         );
 
         shouldBeEmptyBetweenTimeRange(startTime, queryEnd, "DAY");
